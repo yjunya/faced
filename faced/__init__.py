@@ -1,1 +1,1 @@
-from faced.detector import FaceDetector
+from faced.faced.detector import FaceDetector
