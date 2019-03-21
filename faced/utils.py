@@ -1,4 +1,5 @@
 import cv2
+import numpy as np
 
 def iou(bbox1, bbox2):
     # determine the (x, y)-coordinates of the intersection rectangle
@@ -24,8 +25,12 @@ def annotate_image(frame, bboxes):
     ret = frame[:]
 
     img_h, img_w, _ = frame.shape
-
     for x, y, w, h, p in bboxes:
-        cv2.rectangle(ret, (int(x - w/2), int(y - h/2)), (int(x + w/2), int(y + h/2)), (0, 255, 0), 3)
+        gomi = np.empty((0,2),int)
+        for i in range(100):
+            gomi = np.append(gomi, np.array([[np.random.randint(int(x - w/2), int(x + w/2)),np.random.randint(int(y - h/2),int(y + h/2))]]),axis=0)
+        cv2.polylines(ret, [gomi], False, (0,0,0))
+        # cv2.rectangle(ret, (int(x - w/2), int(y - h/2)), (int(x + w/2), int(y + h/2)), (0, 0, 0), 3)
+
 
     return ret
