@@ -3,8 +3,8 @@ import cv2
 import numpy as np
 import os
 
-from faced.faced.const import YOLO_TARGET, YOLO_SIZE, CORRECTOR_SIZE, MODELS_PATH
-from faced.faced.utils import iou
+from faced.const import YOLO_TARGET, YOLO_SIZE, CORRECTOR_SIZE, MODELS_PATH
+from faced.utils import iou
 
 
 class FaceDetector(object):
